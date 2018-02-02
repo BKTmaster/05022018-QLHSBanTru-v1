@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Demo_Version_1.Properties
+namespace QLHSBanTru2018_Demo_V1.Properties
 {
 
 
