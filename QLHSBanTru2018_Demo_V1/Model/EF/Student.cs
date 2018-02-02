@@ -37,11 +37,9 @@ namespace Model.EF
         [StringLength(50)]
         public string Talent { get; set; }
 
-        [StringLength(20)]
-        public string EthnicGroup { get; set; }
+        public int? EthnicGroupID { get; set; }
 
-        [StringLength(20)]
-        public string Religion { get; set; }
+        public int? ReligionID { get; set; }
 
         public int? BirthPlaceID { get; set; }
 

@@ -13,6 +13,10 @@ namespace Model.EF
 
         public int? StudentID { get; set; }
 
+        public int? WeeklyTaskID { get; set; }
+
+        public int? MonthlyTaskID { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime? DateTask { get; set; }
 

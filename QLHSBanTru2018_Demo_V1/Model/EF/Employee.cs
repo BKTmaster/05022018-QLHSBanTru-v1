@@ -28,17 +28,17 @@ namespace Model.EF
 
         public bool? Gender { get; set; }
 
-        [StringLength(20)]
-        public string EthnicGroup { get; set; }
+        public int? EthnicGroupID { get; set; }
 
-        [StringLength(20)]
-        public string Religion { get; set; }
+        public int? ReligionID { get; set; }
 
         [Column(TypeName = "image")]
         public byte[] Image { get; set; }
 
+        public int? AddressID { get; set; }
+
         [StringLength(100)]
-        public string Address { get; set; }
+        public string AddressDetail { get; set; }
 
         [StringLength(100)]
         public string Email { get; set; }
