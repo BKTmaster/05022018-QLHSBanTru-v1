@@ -16,6 +16,7 @@ namespace Model.EF
             Student_Class = new HashSet<Student_Class>();
         }
 
+<<<<<<< HEAD
         public int ClassID { get; set; }
 
         public int GradeID { get; set; }
@@ -33,5 +34,13 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student_Class> Student_Class { get; set; }
+=======
+        public int? GradeID { get; set; }
+        //
+        [StringLength(50)]
+        public string Name { get; set; }
+        //
+        public bool? Status { get; set; }
+>>>>>>> 9a1d953195b443c7ca37cc87e7ec79bfb2b086dd
     }
 }
