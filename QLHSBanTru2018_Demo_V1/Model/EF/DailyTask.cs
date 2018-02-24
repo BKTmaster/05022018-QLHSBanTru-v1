@@ -12,7 +12,7 @@ namespace Model.EF
         public int ID { get; set; }
 
         public int? StudentID { get; set; }
-
+        //BBBB
         public int? WeeklyTaskID { get; set; }
 
         public int? MonthlyTaskID { get; set; }
