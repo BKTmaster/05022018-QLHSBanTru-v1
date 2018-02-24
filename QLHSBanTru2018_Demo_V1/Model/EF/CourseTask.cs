@@ -29,7 +29,7 @@ namespace Model.EF
 
         [StringLength(200)]
         public string Note { get; set; }
-
+        //
         public bool Status { get; set; }
 
         public virtual Course Course { get; set; }
