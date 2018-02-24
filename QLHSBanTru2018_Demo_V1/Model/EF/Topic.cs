@@ -9,13 +9,25 @@ namespace Model.EF
     [Table("Topic")]
     public partial class Topic
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Topic()
+        {
+            Lessons = new HashSet<Lesson>();
+        }
 
+        public int TopicID { get; set; }
+
+        [Required]
         [StringLength(200)]
         public string Name { get; set; }
 
-        public int? TopicTypeID { get; set; }
+        public int TopicTypeID { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Lesson> Lessons { get; set; }
+
+        public virtual TopicType TopicType { get; set; }
     }
 }

@@ -9,14 +9,27 @@ namespace Model.EF
     [Table("DailyMenuDetail")]
     public partial class DailyMenuDetail
     {
-        public int ID { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int DailyMenuID { get; set; }
 
-        public int? DailyMenuID { get; set; }
+        [Key]
+        [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MealID { get; set; }
 
-        public int? MealID { get; set; }
+        [Key]
+        [Column(Order = 2)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int DishID { get; set; }
 
-        public int? DishID { get; set; }
+        public bool Status { get; set; }
 
-        public bool? Status { get; set; }
+        public virtual DailyMenu DailyMenu { get; set; }
+
+        public virtual Dish Dish { get; set; }
+
+        public virtual Meal Meal { get; set; }
     }
 }

@@ -9,27 +9,32 @@ namespace Model.EF
     [Table("Contract")]
     public partial class Contract
     {
-        public int ID { get; set; }
+        public int ContractID { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string ContractType { get; set; }
 
-        public int? EmployeeID { get; set; }
+        public int EmployeeID { get; set; }
 
-        public int? DepartmentID { get; set; }
+        public int DepartmentID { get; set; }
 
-        public int? PositionID { get; set; }
+        public int PositionID { get; set; }
 
-        public int? DegreeID { get; set; }
-
-        public double? PayRate { get; set; }
+        public double PayRate { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? CreateDate { get; set; }
+        public DateTime CreateDate { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        public virtual Department Department { get; set; }
+
+        public virtual Employee Employee { get; set; }
+
+        public virtual Position Position { get; set; }
     }
 }

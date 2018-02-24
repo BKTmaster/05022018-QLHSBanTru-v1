@@ -6,33 +6,28 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("DailyMenu")]
-    public partial class DailyMenu
+    [Table("Preferred")]
+    public partial class Preferred
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DailyMenu()
+        public Preferred()
         {
-            DailyMenuDetails = new HashSet<DailyMenuDetail>();
+            ReceivableDetail_Preferred = new HashSet<ReceivableDetail_Preferred>();
+            Students = new HashSet<Student>();
         }
 
-        public int DailyMenuID { get; set; }
+        public int PreferredID { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Name { get; set; }
-
-        public int WeeklyMenuID { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime Date { get; set; }
-
-        public bool IsForm { get; set; }
 
         public bool Status { get; set; }
 
-        public virtual WeeklyMenu WeeklyMenu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ReceivableDetail_Preferred> ReceivableDetail_Preferred { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DailyMenuDetail> DailyMenuDetails { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

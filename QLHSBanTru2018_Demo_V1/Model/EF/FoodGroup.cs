@@ -9,15 +9,16 @@ namespace Model.EF
     [Table("FoodGroup")]
     public partial class FoodGroup
     {
-        public int ID { get; set; }
+        public int FoodGroupID { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Name { get; set; }
 
-        public double? MinKalo { get; set; }
+        public double MinKcal { get; set; }
 
-        public double? MaxKalo { get; set; }
+        public double MaxKcal { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
     }
 }

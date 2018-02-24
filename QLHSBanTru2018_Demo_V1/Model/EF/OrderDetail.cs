@@ -18,8 +18,18 @@ namespace Model.EF
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IngredientID { get; set; }
 
-        public int? QuantityOfUnit { get; set; }
+        public decimal PriceOfUnit { get; set; }
 
-        public bool? Status { get; set; }
+        public int QuantityOfUnit { get; set; }
+
+        public decimal TotalPrice { get; set; }
+
+        public byte Discount { get; set; }
+
+        public bool Status { get; set; }
+
+        public virtual Ingredient Ingredient { get; set; }
+
+        public virtual Order Order { get; set; }
     }
 }

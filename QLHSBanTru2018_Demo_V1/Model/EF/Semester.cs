@@ -9,19 +9,31 @@ namespace Model.EF
     [Table("Semester")]
     public partial class Semester
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Semester()
+        {
+            Grades = new HashSet<Grade>();
+        }
 
-        public int? CourseID { get; set; }
+        public int SemesterID { get; set; }
 
+        public int CourseID { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string Name { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? EndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        public virtual Course Course { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Grade> Grades { get; set; }
     }
 }

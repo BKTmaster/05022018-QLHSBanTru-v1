@@ -8,15 +8,23 @@ namespace Model.EF
 
     public partial class Student_Class
     {
-        public int ID { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int StudentID { get; set; }
 
-        public int? StudentID { get; set; }
-
-        public int? ClassID { get; set; }
+        [Key]
+        [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ClassID { get; set; }
 
         [StringLength(200)]
         public string Note { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        public virtual Class Class { get; set; }
+
+        public virtual Student Student { get; set; }
     }
 }

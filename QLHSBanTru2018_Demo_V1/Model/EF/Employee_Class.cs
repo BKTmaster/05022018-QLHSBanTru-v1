@@ -8,12 +8,20 @@ namespace Model.EF
 
     public partial class Employee_Class
     {
-        public int ID { get; set; }
+        [Key]
+        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int EmployeeID { get; set; }
 
-        public int? EmployeeID { get; set; }
+        [Key]
+        [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ClassID { get; set; }
 
-        public int? ClassID { get; set; }
+        public bool Status { get; set; }
 
-        public bool? Status { get; set; }
+        public virtual Class Class { get; set; }
+
+        public virtual Employee Employee { get; set; }
     }
 }

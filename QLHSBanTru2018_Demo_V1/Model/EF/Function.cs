@@ -6,28 +6,35 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Dish")]
-    public partial class Dish
+    [Table("Function")]
+    public partial class Function
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Dish()
+        public Function()
         {
-            DailyMenuDetails = new HashSet<DailyMenuDetail>();
-            DishDetails = new HashSet<DishDetail>();
+            Employee_Function = new HashSet<Employee_Function>();
+            Histories = new HashSet<History>();
         }
 
-        public int DishID { get; set; }
+        public int FunctionID { get; set; }
+
+        public int FunctionGroupID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
 
+        [StringLength(500)]
+        public string Note { get; set; }
+
         public bool Status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DailyMenuDetail> DailyMenuDetails { get; set; }
+        public virtual ICollection<Employee_Function> Employee_Function { get; set; }
+
+        public virtual FunctionGroup FunctionGroup { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DishDetail> DishDetails { get; set; }
+        public virtual ICollection<History> Histories { get; set; }
     }
 }

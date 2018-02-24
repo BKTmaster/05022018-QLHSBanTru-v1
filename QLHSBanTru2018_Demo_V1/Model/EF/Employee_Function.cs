@@ -6,18 +6,22 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Receivable_Student
+    public partial class Employee_Function
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ReceivableID { get; set; }
+        public int EmployeeID { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StudentID { get; set; }
+        public int FunctionID { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        public virtual Employee Employee { get; set; }
+
+        public virtual Function Function { get; set; }
     }
 }

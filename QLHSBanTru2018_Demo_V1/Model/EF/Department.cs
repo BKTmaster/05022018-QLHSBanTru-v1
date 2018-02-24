@@ -9,11 +9,21 @@ namespace Model.EF
     [Table("Department")]
     public partial class Department
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Department()
+        {
+            Contracts = new HashSet<Contract>();
+        }
 
+        public int DepartmentID { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string Name { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contract> Contracts { get; set; }
     }
 }

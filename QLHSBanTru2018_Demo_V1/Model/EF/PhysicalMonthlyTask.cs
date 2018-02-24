@@ -6,23 +6,34 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("WeeklyTask")]
-    public partial class WeeklyTask
+    [Table("PhysicalMonthlyTask")]
+    public partial class PhysicalMonthlyTask
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public WeeklyTask()
+        public PhysicalMonthlyTask()
         {
             DailyTasks = new HashSet<DailyTask>();
         }
 
-        public int WeeklyTaskID { get; set; }
+        public int PhysicalMonthlyTaskID { get; set; }
+
+        public int StudentID { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Name { get; set; }
-
         [StringLength(200)]
         public string Note { get; set; }
+
+        public int Height { get; set; }
+
+        public int Weight { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string HeightRating { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string WeightRating { get; set; }
 
         public bool Status { get; set; }
 

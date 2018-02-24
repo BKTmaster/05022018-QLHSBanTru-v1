@@ -9,13 +9,20 @@ namespace Model.EF
     [Table("DishDetail")]
     public partial class DishDetail
     {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int DishDetailID { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DishID { get; set; }
 
-        public int? IngredientID { get; set; }
+        public int IngredientID { get; set; }
 
-        public double? QuantiyOfUnit { get; set; }
+        public double QuantiyOfUnit { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
+
+        public virtual Dish Dish { get; set; }
+
+        public virtual Ingredient Ingredient { get; set; }
     }
 }

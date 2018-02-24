@@ -6,24 +6,24 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Student_Lesson
+    public partial class ReceivableDetail_Preferred
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int LessonID { get; set; }
+        public int ReceivableDetailID { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StudentID { get; set; }
+        public int PreferredID { get; set; }
 
-        public bool Rating { get; set; }
+        public double Percent { get; set; }
 
         public bool Status { get; set; }
 
-        public virtual Lesson Lesson { get; set; }
+        public virtual Preferred Preferred { get; set; }
 
-        public virtual Student Student { get; set; }
+        public virtual ReceivableDetail ReceivableDetail { get; set; }
     }
 }
