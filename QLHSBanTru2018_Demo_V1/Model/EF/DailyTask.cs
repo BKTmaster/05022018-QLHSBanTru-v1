@@ -10,17 +10,9 @@ namespace Model.EF
     public partial class DailyTask
     {
         public int DailyTaskID { get; set; }
-
-<<<<<<< HEAD
         public int StudentID { get; set; }
 
         public int WeeklyTaskID { get; set; }
-=======
-        public int? StudentID { get; set; }
-        //BBBB
-        public int? WeeklyTaskID { get; set; }
->>>>>>> 9a1d953195b443c7ca37cc87e7ec79bfb2b086dd
-
         public int MonthlyTaskID { get; set; }
 
         [Column(TypeName = "date")]
