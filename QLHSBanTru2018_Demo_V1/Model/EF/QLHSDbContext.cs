@@ -124,7 +124,6 @@ namespace Model.EF
             modelBuilder.Entity<Employee>()
                 .Property(e => e.IdentityNumber)
                 .IsUnicode(false);
-            //ABC
 
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.Contracts)
