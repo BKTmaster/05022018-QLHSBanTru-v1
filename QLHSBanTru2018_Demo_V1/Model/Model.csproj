@@ -50,6 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DAO\preferredDAO.cs" />
+    <Compile Include="DAO\ReceivableDAO.cs" />
+    <Compile Include="DAO\ReceivableDetailDAO.cs" />
+    <Compile Include="DAO\ReceivableDetail_PreferredDAO.cs" />
+    <Compile Include="DAO\ReceivableDetail_StudentDAO.cs" />
     <Compile Include="EF\Class.cs" />
     <Compile Include="EF\Contract.cs" />
     <Compile Include="EF\Course.cs" />
@@ -105,6 +110,5 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

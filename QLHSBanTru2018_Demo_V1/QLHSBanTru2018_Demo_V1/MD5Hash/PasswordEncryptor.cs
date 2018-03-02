@@ -25,5 +25,6 @@ namespace QLHSBanTru2018_Demo_V1.MD5Hash
 
             return strBuilder.ToString();
         }
+        //vyufuyyfuy
     }
 }

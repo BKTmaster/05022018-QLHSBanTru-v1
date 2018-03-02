@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using QLHSBanTru2018_Demo_V1.QLThuChi;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -16,6 +17,25 @@ namespace QLHSBanTru2018_Demo_V1
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bntCackhoanThu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FrCacKhoanThu a = new FrCacKhoanThu();
+            a.ShowDialog();
+        }
+
+        private void bntKhoanThuTuongLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            USCacKhoanThuTheoLop a = new USCacKhoanThuTheoLop();
+            PNChinh.Controls.Clear();
+            PNChinh.Controls.Add(a);
+            a.Dock = DockStyle.Fill;
         }
     }
 }

@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.chkRemember = new System.Windows.Forms.CheckBox();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.labError = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(356, 565);
             this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.label2.Location = new System.Drawing.Point(101, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(165, 58);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "LOGIN";
+            // 
+            // labError
+            // 
+            this.labError.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labError.ForeColor = System.Drawing.Color.Red;
+            this.labError.Location = new System.Drawing.Point(44, 392);
+            this.labError.Name = "labError";
+            this.labError.Size = new System.Drawing.Size(271, 23);
+            this.labError.TabIndex = 12;
+            this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -121,27 +142,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(268, 26);
             this.txtUsername.TabIndex = 0;
-            // 
-            // labError
-            // 
-            this.labError.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labError.ForeColor = System.Drawing.Color.Red;
-            this.labError.Location = new System.Drawing.Point(44, 392);
-            this.labError.Name = "labError";
-            this.labError.Size = new System.Drawing.Size(271, 23);
-            this.labError.TabIndex = 12;
-            this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            this.label2.Location = new System.Drawing.Point(101, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 58);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "LOGIN";
             // 
             // frmLogin
             // 
