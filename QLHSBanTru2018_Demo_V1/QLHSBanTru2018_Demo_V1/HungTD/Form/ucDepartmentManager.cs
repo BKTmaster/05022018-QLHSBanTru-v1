@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 
-namespace QLHSBanTru2018_Demo_V1
+namespace QLHSBanTru2018_Demo_V1.HungTD.Form
 {
-    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class ucDepartmentManager : DevExpress.XtraEditors.XtraUserControl
     {
-        public frmMain()
+        public ucDepartmentManager()
         {
             InitializeComponent();
         }
