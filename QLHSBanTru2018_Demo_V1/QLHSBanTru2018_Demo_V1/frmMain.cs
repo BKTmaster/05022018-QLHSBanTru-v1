@@ -26,16 +26,12 @@ namespace QLHSBanTru2018_Demo_V1
 
         private void bntCackhoanThu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FrCacKhoanThu a = new FrCacKhoanThu();
-            a.ShowDialog();
+
         }
 
         private void bntKhoanThuTuongLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-            USCacKhoanThuTheoLop a = new USCacKhoanThuTheoLop();
-            PNChinh.Controls.Clear();
-            PNChinh.Controls.Add(a);
-            a.Dock = DockStyle.Fill;
+
         }
     }
 }
