@@ -282,7 +282,7 @@
             this.Controls.Add(this.txtTenKhoanThu);
             this.Controls.Add(this.label1);
             this.Name = "FTaoKhoanThu";
-            this.Text = "FTaoKhoanThu";
+            this.Text = "Tạo khoản thu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -53,6 +53,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.PNChinh = new System.Windows.Forms.Panel();
+            this.bntNhomThu = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,9 +75,10 @@
             this.bntTheoDoiPhieuThu,
             this.barButtonItem3,
             this.bntLapPhieuChi,
-            this.bntSoHoachToan});
+            this.bntSoHoachToan,
+            this.bntNhomThu});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 16;
+            this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.PQLThuChi});
@@ -186,6 +188,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.bntKhoanThuTuongLop);
             this.ribbonPageGroup1.ItemLinks.Add(this.bntLoaiKhoanChi);
             this.ribbonPageGroup1.ItemLinks.Add(this.bntCacKhoanChi);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bntNhomThu);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Danh mục";
             // 
@@ -237,6 +240,12 @@
             this.PNChinh.Size = new System.Drawing.Size(880, 471);
             this.PNChinh.TabIndex = 2;
             // 
+            // bntNhomThu
+            // 
+            this.bntNhomThu.Caption = "barButtonItem1";
+            this.bntNhomThu.Id = 16;
+            this.bntNhomThu.Name = "bntNhomThu";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,5 +293,6 @@
         private DevExpress.XtraBars.BarButtonItem bntLapPhieuChi;
         private DevExpress.XtraBars.BarButtonItem bntSoHoachToan;
         private System.Windows.Forms.Panel PNChinh;
+        private DevExpress.XtraBars.BarButtonItem bntNhomThu;
     }
 }

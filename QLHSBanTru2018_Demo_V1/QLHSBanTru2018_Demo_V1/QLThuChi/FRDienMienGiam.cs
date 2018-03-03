@@ -18,6 +18,9 @@ namespace QLHSBanTru2018_Demo_V1.QLThuChi
             InitializeComponent();
         }
 
-        
+        private void bntThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

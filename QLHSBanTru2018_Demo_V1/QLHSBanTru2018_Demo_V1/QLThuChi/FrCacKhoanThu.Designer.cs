@@ -106,7 +106,7 @@
             this.Controls.Add(this.grCacKhoanThu);
             this.Controls.Add(this.bntDong);
             this.Name = "FrCacKhoanThu";
-            this.Text = "FrCacKhoanThu";
+            this.Text = "Các khoản thu";
             ((System.ComponentModel.ISupportInitialize)(this.grCacKhoanThu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
