@@ -33,9 +33,9 @@ namespace DataConnect
     partial void InsertClass(Class instance);
     partial void UpdateClass(Class instance);
     partial void DeleteClass(Class instance);
-    partial void InsertWeeklyTask(WeeklyTask instance);
-    partial void UpdateWeeklyTask(WeeklyTask instance);
-    partial void DeleteWeeklyTask(WeeklyTask instance);
+    partial void InsertDailyMenu(DailyMenu instance);
+    partial void UpdateDailyMenu(DailyMenu instance);
+    partial void DeleteDailyMenu(DailyMenu instance);
     partial void InsertContract(Contract instance);
     partial void UpdateContract(Contract instance);
     partial void DeleteContract(Contract instance);
@@ -45,9 +45,9 @@ namespace DataConnect
     partial void InsertCourseTask(CourseTask instance);
     partial void UpdateCourseTask(CourseTask instance);
     partial void DeleteCourseTask(CourseTask instance);
-    partial void InsertDailyMenu(DailyMenu instance);
-    partial void UpdateDailyMenu(DailyMenu instance);
-    partial void DeleteDailyMenu(DailyMenu instance);
+    partial void InsertWeeklyTask(WeeklyTask instance);
+    partial void UpdateWeeklyTask(WeeklyTask instance);
+    partial void DeleteWeeklyTask(WeeklyTask instance);
     partial void InsertDailyMenuDetail(DailyMenuDetail instance);
     partial void UpdateDailyMenuDetail(DailyMenuDetail instance);
     partial void DeleteDailyMenuDetail(DailyMenuDetail instance);
@@ -177,7 +177,7 @@ namespace DataConnect
     #endregion
 		
 		public QLHSSmartKidsDataContext() : 
-				base(global::DataConnect.Properties.Settings.Default.CPITQLHSBanTruConnectionString, mappingSource)
+				base(global::DataConnect.Properties.Settings.Default.CPITQLHSBanTruConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -214,11 +214,11 @@ namespace DataConnect
 			}
 		}
 		
-		public System.Data.Linq.Table<WeeklyTask> WeeklyTasks
+		public System.Data.Linq.Table<DailyMenu> DailyMenus
 		{
 			get
 			{
-				return this.GetTable<WeeklyTask>();
+				return this.GetTable<DailyMenu>();
 			}
 		}
 		
@@ -246,11 +246,11 @@ namespace DataConnect
 			}
 		}
 		
-		public System.Data.Linq.Table<DailyMenu> DailyMenus
+		public System.Data.Linq.Table<WeeklyTask> WeeklyTasks
 		{
 			get
 			{
-				return this.GetTable<DailyMenu>();
+				return this.GetTable<WeeklyTask>();
 			}
 		}
 		
@@ -822,58 +822,69 @@ namespace DataConnect
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WeeklyTask")]
-	public partial class WeeklyTask : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DailyMenu")]
+	public partial class DailyMenu : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _WeeklyTaskID;
+		private int _DailyMenuID;
 		
 		private string _Name;
 		
-		private string _Note;
+		private int _WeeklyMenuID;
+		
+		private System.DateTime _Date;
+		
+		private bool _IsForm;
 		
 		private bool _Status;
 		
-		private EntitySet<DailyTask> _DailyTasks;
+		private EntitySet<DailyMenuDetail> _DailyMenuDetails;
+		
+		private EntityRef<WeeklyMenu> _WeeklyMenu;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnWeeklyTaskIDChanging(int value);
-    partial void OnWeeklyTaskIDChanged();
+    partial void OnDailyMenuIDChanging(int value);
+    partial void OnDailyMenuIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
+    partial void OnWeeklyMenuIDChanging(int value);
+    partial void OnWeeklyMenuIDChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnIsFormChanging(bool value);
+    partial void OnIsFormChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
     #endregion
 		
-		public WeeklyTask()
+		public DailyMenu()
 		{
-			this._DailyTasks = new EntitySet<DailyTask>(new Action<DailyTask>(this.attach_DailyTasks), new Action<DailyTask>(this.detach_DailyTasks));
+			this._DailyMenuDetails = new EntitySet<DailyMenuDetail>(new Action<DailyMenuDetail>(this.attach_DailyMenuDetails), new Action<DailyMenuDetail>(this.detach_DailyMenuDetails));
+			this._WeeklyMenu = default(EntityRef<WeeklyMenu>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int WeeklyTaskID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DailyMenuID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int DailyMenuID
 		{
 			get
 			{
-				return this._WeeklyTaskID;
+				return this._DailyMenuID;
 			}
 			set
 			{
-				if ((this._WeeklyTaskID != value))
+				if ((this._DailyMenuID != value))
 				{
-					this.OnWeeklyTaskIDChanging(value);
+					this.OnDailyMenuIDChanging(value);
 					this.SendPropertyChanging();
-					this._WeeklyTaskID = value;
-					this.SendPropertyChanged("WeeklyTaskID");
-					this.OnWeeklyTaskIDChanged();
+					this._DailyMenuID = value;
+					this.SendPropertyChanged("DailyMenuID");
+					this.OnDailyMenuIDChanged();
 				}
 			}
 		}
@@ -898,22 +909,66 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200)")]
-		public string Note
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyMenuID", DbType="Int NOT NULL")]
+		public int WeeklyMenuID
 		{
 			get
 			{
-				return this._Note;
+				return this._WeeklyMenuID;
 			}
 			set
 			{
-				if ((this._Note != value))
+				if ((this._WeeklyMenuID != value))
 				{
-					this.OnNoteChanging(value);
+					if (this._WeeklyMenu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnWeeklyMenuIDChanging(value);
 					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
+					this._WeeklyMenuID = value;
+					this.SendPropertyChanged("WeeklyMenuID");
+					this.OnWeeklyMenuIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsForm", DbType="Bit NOT NULL")]
+		public bool IsForm
+		{
+			get
+			{
+				return this._IsForm;
+			}
+			set
+			{
+				if ((this._IsForm != value))
+				{
+					this.OnIsFormChanging(value);
+					this.SendPropertyChanging();
+					this._IsForm = value;
+					this.SendPropertyChanged("IsForm");
+					this.OnIsFormChanged();
 				}
 			}
 		}
@@ -938,16 +993,50 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeeklyTask_DailyTask", Storage="_DailyTasks", ThisKey="WeeklyTaskID", OtherKey="WeeklyTaskID")]
-		public EntitySet<DailyTask> DailyTasks
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DailyMenu_DailyMenuDetail", Storage="_DailyMenuDetails", ThisKey="DailyMenuID", OtherKey="DailyMenuID")]
+		public EntitySet<DailyMenuDetail> DailyMenuDetails
 		{
 			get
 			{
-				return this._DailyTasks;
+				return this._DailyMenuDetails;
 			}
 			set
 			{
-				this._DailyTasks.Assign(value);
+				this._DailyMenuDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeeklyMenu_DailyMenu", Storage="_WeeklyMenu", ThisKey="WeeklyMenuID", OtherKey="WeeklyMenuID", IsForeignKey=true)]
+		public WeeklyMenu WeeklyMenu
+		{
+			get
+			{
+				return this._WeeklyMenu.Entity;
+			}
+			set
+			{
+				WeeklyMenu previousValue = this._WeeklyMenu.Entity;
+				if (((previousValue != value) 
+							|| (this._WeeklyMenu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._WeeklyMenu.Entity = null;
+						previousValue.DailyMenus.Remove(this);
+					}
+					this._WeeklyMenu.Entity = value;
+					if ((value != null))
+					{
+						value.DailyMenus.Add(this);
+						this._WeeklyMenuID = value.WeeklyMenuID;
+					}
+					else
+					{
+						this._WeeklyMenuID = default(int);
+					}
+					this.SendPropertyChanged("WeeklyMenu");
+				}
 			}
 		}
 		
@@ -971,16 +1060,16 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_DailyTasks(DailyTask entity)
+		private void attach_DailyMenuDetails(DailyMenuDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.WeeklyTask = this;
+			entity.DailyMenu = this;
 		}
 		
-		private void detach_DailyTasks(DailyTask entity)
+		private void detach_DailyMenuDetails(DailyMenuDetail entity)
 		{
 			this.SendPropertyChanging();
-			entity.WeeklyTask = null;
+			entity.DailyMenu = null;
 		}
 	}
 	
@@ -1887,69 +1976,58 @@ namespace DataConnect
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DailyMenu")]
-	public partial class DailyMenu : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WeeklyTask")]
+	public partial class WeeklyTask : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _DailyMenuID;
+		private int _WeeklyTaskID;
 		
 		private string _Name;
 		
-		private int _WeeklyMenuID;
-		
-		private System.DateTime _Date;
-		
-		private bool _IsForm;
+		private string _Note;
 		
 		private bool _Status;
 		
-		private EntitySet<DailyMenuDetail> _DailyMenuDetails;
-		
-		private EntityRef<WeeklyMenu> _WeeklyMenu;
+		private EntitySet<DailyTask> _DailyTasks;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnDailyMenuIDChanging(int value);
-    partial void OnDailyMenuIDChanged();
+    partial void OnWeeklyTaskIDChanging(int value);
+    partial void OnWeeklyTaskIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnWeeklyMenuIDChanging(int value);
-    partial void OnWeeklyMenuIDChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnIsFormChanging(bool value);
-    partial void OnIsFormChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
     partial void OnStatusChanging(bool value);
     partial void OnStatusChanged();
     #endregion
 		
-		public DailyMenu()
+		public WeeklyTask()
 		{
-			this._DailyMenuDetails = new EntitySet<DailyMenuDetail>(new Action<DailyMenuDetail>(this.attach_DailyMenuDetails), new Action<DailyMenuDetail>(this.detach_DailyMenuDetails));
-			this._WeeklyMenu = default(EntityRef<WeeklyMenu>);
+			this._DailyTasks = new EntitySet<DailyTask>(new Action<DailyTask>(this.attach_DailyTasks), new Action<DailyTask>(this.detach_DailyTasks));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DailyMenuID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int DailyMenuID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyTaskID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int WeeklyTaskID
 		{
 			get
 			{
-				return this._DailyMenuID;
+				return this._WeeklyTaskID;
 			}
 			set
 			{
-				if ((this._DailyMenuID != value))
+				if ((this._WeeklyTaskID != value))
 				{
-					this.OnDailyMenuIDChanging(value);
+					this.OnWeeklyTaskIDChanging(value);
 					this.SendPropertyChanging();
-					this._DailyMenuID = value;
-					this.SendPropertyChanged("DailyMenuID");
-					this.OnDailyMenuIDChanged();
+					this._WeeklyTaskID = value;
+					this.SendPropertyChanged("WeeklyTaskID");
+					this.OnWeeklyTaskIDChanged();
 				}
 			}
 		}
@@ -1974,66 +2052,22 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyMenuID", DbType="Int NOT NULL")]
-		public int WeeklyMenuID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(200)")]
+		public string Note
 		{
 			get
 			{
-				return this._WeeklyMenuID;
+				return this._Note;
 			}
 			set
 			{
-				if ((this._WeeklyMenuID != value))
+				if ((this._Note != value))
 				{
-					if (this._WeeklyMenu.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnWeeklyMenuIDChanging(value);
+					this.OnNoteChanging(value);
 					this.SendPropertyChanging();
-					this._WeeklyMenuID = value;
-					this.SendPropertyChanged("WeeklyMenuID");
-					this.OnWeeklyMenuIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsForm", DbType="Bit NOT NULL")]
-		public bool IsForm
-		{
-			get
-			{
-				return this._IsForm;
-			}
-			set
-			{
-				if ((this._IsForm != value))
-				{
-					this.OnIsFormChanging(value);
-					this.SendPropertyChanging();
-					this._IsForm = value;
-					this.SendPropertyChanged("IsForm");
-					this.OnIsFormChanged();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
 				}
 			}
 		}
@@ -2058,50 +2092,16 @@ namespace DataConnect
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DailyMenu_DailyMenuDetail", Storage="_DailyMenuDetails", ThisKey="DailyMenuID", OtherKey="DailyMenuID")]
-		public EntitySet<DailyMenuDetail> DailyMenuDetails
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeeklyTask_DailyTask", Storage="_DailyTasks", ThisKey="WeeklyTaskID", OtherKey="WeeklyTaskID")]
+		public EntitySet<DailyTask> DailyTasks
 		{
 			get
 			{
-				return this._DailyMenuDetails;
+				return this._DailyTasks;
 			}
 			set
 			{
-				this._DailyMenuDetails.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="WeeklyMenu_DailyMenu", Storage="_WeeklyMenu", ThisKey="WeeklyMenuID", OtherKey="WeeklyMenuID", IsForeignKey=true)]
-		public WeeklyMenu WeeklyMenu
-		{
-			get
-			{
-				return this._WeeklyMenu.Entity;
-			}
-			set
-			{
-				WeeklyMenu previousValue = this._WeeklyMenu.Entity;
-				if (((previousValue != value) 
-							|| (this._WeeklyMenu.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._WeeklyMenu.Entity = null;
-						previousValue.DailyMenus.Remove(this);
-					}
-					this._WeeklyMenu.Entity = value;
-					if ((value != null))
-					{
-						value.DailyMenus.Add(this);
-						this._WeeklyMenuID = value.WeeklyMenuID;
-					}
-					else
-					{
-						this._WeeklyMenuID = default(int);
-					}
-					this.SendPropertyChanged("WeeklyMenu");
-				}
+				this._DailyTasks.Assign(value);
 			}
 		}
 		
@@ -2125,16 +2125,16 @@ namespace DataConnect
 			}
 		}
 		
-		private void attach_DailyMenuDetails(DailyMenuDetail entity)
+		private void attach_DailyTasks(DailyTask entity)
 		{
 			this.SendPropertyChanging();
-			entity.DailyMenu = this;
+			entity.WeeklyTask = this;
 		}
 		
-		private void detach_DailyMenuDetails(DailyMenuDetail entity)
+		private void detach_DailyTasks(DailyTask entity)
 		{
 			this.SendPropertyChanging();
-			entity.DailyMenu = null;
+			entity.WeeklyTask = null;
 		}
 	}
 	

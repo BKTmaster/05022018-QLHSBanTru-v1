@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CPITQLHSBanTru" Class="QLHSSmartKidsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=42.112.20.82,1433;Initial Catalog=CPITQLHSBanTru;Persist Security Info=True;User ID=CPITQLHSBanTru" SettingsObjectName="DataConnect.Properties.Settings" SettingsPropertyName="CPITQLHSBanTruConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=&quot;42.112.20.82, 1433&quot;;Initial Catalog=CPITQLHSBanTru;Persist Security Info=True;User ID=CPITQLHSBanTru" SettingsObjectName="DataConnect.Properties.Settings" SettingsPropertyName="CPITQLHSBanTruConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Class" Member="Classes">
     <Type Name="Class">
       <Column Name="ClassID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -11,13 +11,16 @@
       <Association Name="Grade_Class" Member="Grade" ThisKey="GradeID" OtherKey="GradeID" Type="Grade" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.WeeklyTask" Member="WeeklyTasks">
-    <Type Name="WeeklyTask">
-      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.DailyMenu" Member="DailyMenus">
+    <Type Name="DailyMenu">
+      <Column Name="DailyMenuID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="WeeklyMenuID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IsForm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="WeeklyTask_DailyTask" Member="DailyTasks" ThisKey="WeeklyTaskID" OtherKey="WeeklyTaskID" Type="DailyTask" />
+      <Association Name="DailyMenu_DailyMenuDetail" Member="DailyMenuDetails" ThisKey="DailyMenuID" OtherKey="DailyMenuID" Type="DailyMenuDetail" />
+      <Association Name="WeeklyMenu_DailyMenu" Member="WeeklyMenu" ThisKey="WeeklyMenuID" OtherKey="WeeklyMenuID" Type="WeeklyMenu" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Contract" Member="Contracts">
@@ -61,16 +64,13 @@
       <Association Name="Student_CourseTask" Member="Student" ThisKey="StudentID" OtherKey="StudentID" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.DailyMenu" Member="DailyMenus">
-    <Type Name="DailyMenu">
-      <Column Name="DailyMenuID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.WeeklyTask" Member="WeeklyTasks">
+    <Type Name="WeeklyTask">
+      <Column Name="WeeklyTaskID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="WeeklyMenuID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="IsForm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="DailyMenu_DailyMenuDetail" Member="DailyMenuDetails" ThisKey="DailyMenuID" OtherKey="DailyMenuID" Type="DailyMenuDetail" />
-      <Association Name="WeeklyMenu_DailyMenu" Member="WeeklyMenu" ThisKey="WeeklyMenuID" OtherKey="WeeklyMenuID" Type="WeeklyMenu" IsForeignKey="true" />
+      <Association Name="WeeklyTask_DailyTask" Member="DailyTasks" ThisKey="WeeklyTaskID" OtherKey="WeeklyTaskID" Type="DailyTask" />
     </Type>
   </Table>
   <Table Name="dbo.DailyMenuDetail" Member="DailyMenuDetails">

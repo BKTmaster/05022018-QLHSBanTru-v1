@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Linq;
+
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-
+using QLHSBanTru2018_Demo_V1.DAO.HungTD;
+using DataConnect.DAO.HungTD;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -21,7 +23,29 @@ namespace QLHSBanTru2018_Demo_V1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-           
+            if (txtUsername.Text == "" || txtPassword.Text == "")
+            {
+                labError.Text = "Mời bạn nhập đầy đủ thông tin";
+                txtUsername.Focus();
+                txtPassword.ResetText();
+            }
+            else
+            {
+                int result = new LoginDAO().Login(txtUsername.Text, MD5Hash.PasswordEncryptor.MD5Hash(txtPassword.Text));
+                if (result == 1)
+                {
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                else if (result == -2)
+                    labError.Text = "Tài khoản không tồn tại";
+                else if (result == 2)
+                    labError.Text = "Mật khẩu không chính xác";
+                else if (result == -1)
+                    labError.Text = "Tài khoản đã bị khóa";
+                else
+                    labError.Text = "Đã xảy ra lỗi trong quá trình đăng nhập";
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

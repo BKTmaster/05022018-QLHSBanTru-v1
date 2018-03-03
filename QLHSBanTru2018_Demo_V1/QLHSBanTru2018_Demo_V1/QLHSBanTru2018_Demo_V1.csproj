@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QLHSBanTru2018_Demo_V1</RootNamespace>
     <AssemblyName>QLHSBanTru2018_Demo_V1</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,7 +66,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\HungTD\LoginDAO.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +132,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="QLThuChi\FrCacKhoanThu.resx">
       <DependentUpon>FrCacKhoanThu.cs</DependentUpon>
@@ -165,6 +166,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HungTD\Form\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataConnect\DataConnect.csproj">
+      <Project>{55672eb9-7166-4771-a19b-1589897b04cf}</Project>
+      <Name>DataConnect</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
