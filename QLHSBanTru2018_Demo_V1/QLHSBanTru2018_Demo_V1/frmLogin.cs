@@ -57,6 +57,7 @@ namespace QLHSBanTru2018_Demo_V1
         {
             System.Diagnostics.Process.Start("http://facebook.com/duchung.1510");
             //AA
+            //Trần Đức Hùng
         }        
     }
 }
