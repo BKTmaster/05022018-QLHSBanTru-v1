@@ -56,6 +56,7 @@ namespace QLHSBanTru2018_Demo_V1
         private void btnFacebook_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://facebook.com/duchung.1510");
+            //AA
         }        
     }
 }
