@@ -16,6 +16,8 @@ namespace QLHSBanTru2018_Demo_V1
         public frmMain()
         {
             InitializeComponent();
+            //A
+
         }
     }
 }
