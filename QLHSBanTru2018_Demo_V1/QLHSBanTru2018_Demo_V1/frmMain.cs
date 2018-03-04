@@ -17,7 +17,7 @@ namespace QLHSBanTru2018_Demo_V1
         {
             InitializeComponent();
             //A
-
+            //Trần Đức Hùng
         }
     }
 }
