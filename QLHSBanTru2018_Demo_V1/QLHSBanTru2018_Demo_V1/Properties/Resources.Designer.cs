@@ -83,9 +83,29 @@ namespace QLHSBanTru2018_Demo_V1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit {
+            get {
+                object obj = ResourceManager.GetObject("exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap facebook_logos_PNG19751 {
             get {
                 object obj = ResourceManager.GetObject("facebook_logos_PNG19751", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Users_Exit_icon {
+            get {
+                object obj = ResourceManager.GetObject("Users-Exit-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
