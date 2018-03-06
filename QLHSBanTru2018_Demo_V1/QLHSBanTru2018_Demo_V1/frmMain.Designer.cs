@@ -34,6 +34,7 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.doubleBitmapControl1 = new BunifuAnimatorNS.DoubleBitmapControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +74,15 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
             // 
+            // doubleBitmapControl1
+            // 
+            this.doubleBitmapControl1.Location = new System.Drawing.Point(0, 0);
+            this.doubleBitmapControl1.Name = "doubleBitmapControl1";
+            this.doubleBitmapControl1.Size = new System.Drawing.Size(0, 0);
+            this.doubleBitmapControl1.TabIndex = 0;
+            this.doubleBitmapControl1.Text = "doubleBitmapControl1";
+            this.doubleBitmapControl1.Visible = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,5 +107,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
+        private BunifuAnimatorNS.DoubleBitmapControl doubleBitmapControl1;
     }
 }
