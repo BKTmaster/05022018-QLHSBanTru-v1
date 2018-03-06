@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>C:\Users\Tran Duc Hung\Downloads\InnerVisual-Bunifu_UI_v1.5.3 Crack\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.2" />
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -184,6 +184,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Bunifu\" />
     <Folder Include="HungTD\Form\" />
   </ItemGroup>
   <ItemGroup>
