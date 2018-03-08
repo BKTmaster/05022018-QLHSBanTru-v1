@@ -10,8 +10,13 @@ namespace DataConnect.DAO.HungTD
 {
     public class HistoryDAO
     {
-        QLHSSmartKidsDataContext db = new QLHSSmartKidsDataContext();
+        QLHSSmartKidsDataContext db;
         Table<History> history;
+        public HistoryDAO()
+        {
+            db = new QLHSSmartKidsDataContext();
+            history = db.GetTable<History>();
+        }
         public void Insert(int employeeID, int functionID, string detail)
         {            
             try
@@ -23,7 +28,6 @@ namespace DataConnect.DAO.HungTD
                 obj.Detail = detail;
                 obj.Status = true;
                 
-                history = db.GetTable<History>();
                 history.InsertOnSubmit(obj);
                 db.SubmitChanges();
 

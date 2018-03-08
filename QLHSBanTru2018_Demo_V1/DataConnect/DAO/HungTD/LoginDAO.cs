@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
 using DataConnect.DAO.HungTD;
+using QLHSBanTru2018_Demo_V1.Common;
 
 namespace QLHSBanTru2018_Demo_V1.DAO.HungTD
 {
@@ -39,17 +40,22 @@ namespace QLHSBanTru2018_Demo_V1.DAO.HungTD
                         if (user.FirstOrDefault().Status.Equals(true))
                         {
                             historyDAO.Insert(user.FirstOrDefault().EmployeeID,1,"Thành công");
+                            LoginDetail.LoginID = user.FirstOrDefault().EmployeeID;
+                            LoginDetail.LoginName = user.FirstOrDefault().FirstName + " " + user.FirstOrDefault().LastName;
+                            //Thêm mới lịch sử hoạt động
                             return 1; //Đăng nhập thành công
                         }
                         else
                         {
                             historyDAO.Insert(user.FirstOrDefault().EmployeeID, 1, "Thất bại");
+                            //Thêm mới lịch sử hoạt động
                             return -1; //Tài khoản đã bị khóa
                         }
                     }
                     else
                     {
                         historyDAO.Insert(user.FirstOrDefault().EmployeeID, 1, "Thất bại");
+                        //Thêm mới lịch sử hoạt động
                         return 2; //Mật khẩu không chính xác
                     }
                 }

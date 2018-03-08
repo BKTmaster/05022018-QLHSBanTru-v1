@@ -41,8 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\LoginDetail.cs" />
+    <Compile Include="DAO\HungTD\DegreeDAO.cs" />
+    <Compile Include="DAO\HungTD\DepartmentDAO.cs" />
+    <Compile Include="DAO\HungTD\EmployeeDAO.cs" />
+    <Compile Include="DAO\HungTD\EthnicGroupDAO.cs" />
     <Compile Include="DAO\HungTD\HistoryDAO.cs" />
+    <Compile Include="DAO\HungTD\LocationDAO.cs" />
     <Compile Include="DAO\HungTD\LoginDAO.cs" />
+    <Compile Include="DAO\HungTD\ReligionDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -54,6 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLHSSmartKids.dbml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Department_EmployeeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

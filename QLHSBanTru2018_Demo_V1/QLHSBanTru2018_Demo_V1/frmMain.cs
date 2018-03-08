@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Department;
+using QLHSBanTru2018_Demo_V1.HungTD.Form.Employee;
 
 namespace QLHSBanTru2018_Demo_V1
 {
@@ -16,9 +18,31 @@ namespace QLHSBanTru2018_Demo_V1
         public frmMain()
         {
             InitializeComponent();
-            //A
-            //Trần Đức Hùng
-            //Trần Đức Hùng2
         }
+        #region Trần Đức Hùng
+        private void btnDepartment_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmDepartmentList());
+        }
+
+        private void btnEmployeeManager_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pnControlsPanel.Controls.Clear();
+            pnControlsPanel.Controls.Add(new frmEmployeeList());
+        }
+        #endregion
+
+        #region Nguyễn Kiều Thành Công
+
+        #endregion
+
+        #region Nguyễn Tiến Bảo
+
+        #endregion
+
+        #region Vũ Đức Thiện
+
+        #endregion
     }
 }
